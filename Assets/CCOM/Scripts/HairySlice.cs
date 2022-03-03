@@ -13,10 +13,11 @@ public class HairySlice : MonoBehaviour
     TubeRenderer[] _tubes;
     public CCOM.Flow.FlowFile _flowFile;
 
+    public bool rebuild = false;
     public int nx = 10;
     public int ny = 10;
-    public int pointCount = 50;
-    public float stepSize = 30f;
+    public int pointCount = 10;
+    public float stepSize = 0.1f;
     public bool useRungeKutta4 = true;
     public bool colorByVelocity = true;
     public float _startRadius = 1f;
@@ -34,10 +35,6 @@ public class HairySlice : MonoBehaviour
     bool _needsUpdate = true;
 
     public Material _mainMat;
-
-    void Awake()
-    {
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +64,8 @@ public class HairySlice : MonoBehaviour
         if (hairs == null || 
             hairs.Length != nx * ny ||
             _tubes[0].points.Length != pointCount ||
-            usedColor != colorByVelocity)
+            usedColor != colorByVelocity ||
+            rebuild)
         {
             usedColor = colorByVelocity;
 
@@ -80,6 +78,8 @@ public class HairySlice : MonoBehaviour
             }
 
             MakeHair();
+
+            rebuild = false;
         }
         
         if (transform.hasChanged)

@@ -17,6 +17,11 @@ public class FlowFileEditorWindow : EditorWindow
         GetWindow<FlowFileEditorWindow>("Flow File Loader");
     }
 
+    void OnInspectorUpdate()
+    {
+        Repaint();
+    }
+
     private void OnGUI()
     {
         //DirectoryInfo levelDirectoryPath = new DirectoryInfo(Application.dataPath);
@@ -64,6 +69,16 @@ public class FlowFileEditorWindow : EditorWindow
             _flowFile = bf;
             CreateObjects();
         }
+        if (GUILayout.Button("Bgrid VectorField File"))
+        {
+            LoadVectorField("Bgrid.vf");
+            CreateObjects();
+        }
+        if (GUILayout.Button("Egrid VectorField File"))
+        {
+            LoadVectorField("Egrid.vf");
+            CreateObjects();
+        }
         GUILayout.EndVertical();
 
         maintainParentAspect = GUILayout.Toggle(maintainParentAspect, "Match Flowgrid Extents to Parent");
@@ -85,11 +100,6 @@ public class FlowFileEditorWindow : EditorWindow
             }
         }
 
-        void OnInspectorUpdate()
-        {
-            Repaint();
-        }
-
         void LoadFlowGrid(string filename, bool usesZInsteadOfDepth)
         {
             if (_obj != null)
@@ -102,6 +112,21 @@ public class FlowFileEditorWindow : EditorWindow
             CCOM.Flow.FlowGrid fg = _obj.AddComponent<CCOM.Flow.FlowGrid>();
             fg._flowfile = Resources.Load(filename) as TextAsset;
             fg._usesZInsteadOfDepth = usesZInsteadOfDepth;
+            fg.LoadMetadata();
+            _flowFile = fg;
+        }
+
+        void LoadVectorField(string filename)
+        {
+            if (_obj != null)
+            {
+                Destroy(_obj);
+            }
+
+            _obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            _obj.name = "Vector Field";
+            CCOM.Flow.VectorFieldFile fg = _obj.AddComponent<CCOM.Flow.VectorFieldFile>();
+            fg._vf = Resources.Load(filename) as TextAsset;
             fg.LoadMetadata();
             _flowFile = fg;
         }

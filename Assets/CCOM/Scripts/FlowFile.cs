@@ -28,7 +28,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace CCOM.Flow {    
-    public class FlowFile : MonoBehaviour{
+        abstract public class FlowFile : MonoBehaviour{
 
         protected Vector3[] _points;
         protected float[] _velocities;
@@ -69,10 +69,8 @@ namespace CCOM.Flow {
 
         }
 
-        public virtual void LoadMetadata()
-        {
-            
-        }
+        public abstract void LoadMetadata();
+
 
         public void RealignVerticalExaggeration()
         {
