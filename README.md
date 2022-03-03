@@ -3,7 +3,10 @@
 Visualize and interact with 3D and 4D flow fields in virtual reality.
 
 ## Quickstart
-
+- Download Unity Hub from https://unity3d.com/get-unity/download
+- Clone this repo using git or download the archive (https://github.com/ahstevens/CCOM-VR-Flow-Unity/archive/refs/heads/main.zip)
+- Decompress archive
+- Use Unity Hub to open the project folder
 - Open example scene in Assets/Scenes/VR MMS.unity
 - Hit "Play" button and explore
 
