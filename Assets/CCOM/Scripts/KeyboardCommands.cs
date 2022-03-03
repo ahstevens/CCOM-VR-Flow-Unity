@@ -47,26 +47,26 @@ public class KeyboardCommands : MonoBehaviour
             Cam.cullingMask = LayerMask.GetMask(layerNames);
             Cam.clearFlags = CameraClearFlags.SolidColor;           
         }
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-            Cam.cullingMask = -1;
-            Cam.clearFlags = CameraClearFlags.Skybox;
-        }
-        if (Input.GetKeyDown(KeyCode.F10) && Cam != null)
+        if (Input.GetKeyDown(KeyCode.F8) && Cam != null)
         {
             //SwapPlayerViews();
             Cam.backgroundColor = Color.white;
         }
-        if (Input.GetKeyDown(KeyCode.F11) && Cam != null)
+        if (Input.GetKeyDown(KeyCode.F9) && Cam != null)
         {
             //SwapPlayerViews();
             Cam.backgroundColor = Color.black;
+        }
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            Cam.cullingMask = -1;
+            Cam.clearFlags = CameraClearFlags.Skybox;
         }
     }
 
     private void LateUpdate()
     {        
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (Input.GetKeyDown(KeyCode.F11))
         {
             CamCapture();
 
