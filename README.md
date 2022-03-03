@@ -42,6 +42,6 @@ Visualize and interact with 3D and 4D flow fields in virtual reality.
   - **C**: Bring the camera to your right hand. The camera can be grabbed and posed as desired
   - **F7**: Isolate flow field visualization layer in camera view
   - **F8**: Change isolated visualization layer background to white
-  - **F8**: Change isolated visualization layer background to black
+  - **F9**: Change isolated visualization layer background to black
   - **F10**: Enable all scene layers in camera view
   - **F11**: Capture a screenshot (will be stored in base project folder as "Screenshot_#" in PNG and JPEG)
