@@ -35,7 +35,7 @@ Visualize and interact with 3D and 4D flow fields in virtual reality.
   - Use the trigger to grab a slice and move it around within the Vector Field volume.
   - **Esc**: Quit the application
   - **L**: Create a point light at the tip of the right hand model's index finger. These point lights can be grabbed and repositioned as desired
-  - **K**: Remove point light closest to the tip of the right hand model's index finger
+  - **K**: Remove point light currently being grabbed by the right hand
   - **C**: Bring the camera to your right hand. The camera can be grabbed and posed as desired
   - **F7**: Isolate flow field visualization layer in camera view
   - **F8**: Change isolated visualization layer background to white
